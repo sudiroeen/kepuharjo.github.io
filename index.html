@@ -4,7 +4,7 @@
 <head>
   <meta content = "text/html; charset = ISO-8859-1" http-equiv = "content-type">
   <title> Desa Kepuharjo </title>
-  <script src="PetaWisata/jquery.min.js"></script>
+  <script src="https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/jquery.min.js"></script>
 </head>
 <body>
 
@@ -363,10 +363,10 @@
 			/* ***************  CALLBACK BUTTON PLACE *************** */
 	function cb_place(obj, id_cb){
 		var lokasi = obj.name;
-		var file_json = "PetaWisata/config_json/" + lokasi + ".json"
+		var file_json = "https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/config_json/" + lokasi + ".json"
 
 		var img_ = document.getElementById("id_callback_img");
-		img_.src = "PetaWisata/GambarWisata/" + lokasi + ".png"
+		img_.src = "https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/GambarWisata/" + lokasi + ".png"
 
 		var elemCb = document.getElementById("id_tabel_konten");
 		var str_elem = ""
@@ -395,7 +395,7 @@
 		htprq.send();
 
 		var denah_img = document.getElementById("id_cb_denah_img");
-		var file2include = "/PetaWisata/Denah/Denah " + lokasi + ".png";
+		var file2include = "/https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/Denah/Denah " + lokasi + ".png";
 
 		denah_img.src = file2include;
 	}
@@ -419,7 +419,7 @@
 
 					/* TAB Perpustakaan */
 	document.addEventListener("DOMContentLoaded", function(event){
-		var list_lib = "Perpustakaan/config_json/ListPerpusKepuharjo.json"
+		var list_lib = "https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/Perpustakaan/config_json/ListPerpusKepuharjo.json"
 		var data2write = document.getElementById("id_dropdown_lokasi")
 		var str2append = ""
 
@@ -445,7 +445,7 @@
 
 
 	document.addEventListener("DOMContentLoaded", function(event){
-		var list_field = "Perpustakaan/config_json/ListField.json"
+		var list_field = "https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/Perpustakaan/config_json/ListField.json"
 		var field2write = document.getElementById("id_field_option")
 		var str_fld2append = ""
 
@@ -537,7 +537,7 @@
 
 	function dropDownLocCb(){
 		lks = document.getElementById("id_dropdown_lokasi").value
-		data_file = "Perpustakaan/Buku/" + lks + ".json";
+		data_file = "https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/Perpustakaan/Buku/" + lks + ".json";
 
 		document.getElementsByClassName("show_all")[0].click()
 	return data_file;
@@ -670,7 +670,7 @@
     </div>
 
 	<div id="Perpustakaan Desa" class="konten_tab">
-	    <img class="logo_sleman" src="Perpustakaan/config_img/Sleman.png" width="70" height="80" >
+	    <img class="logo_sleman" src="https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/Perpustakaan/config_img/Sleman.png" width="70" height="80" >
 	    <h1 class="Corp">Perpustakaan Desa Kepuharjo <br> OPAC <a style="color: #FF7F50">Integrasi</a></h1>
 	    <h5 class="des_corp">Online Public Access Catalog (OPAC) <a style="color: #FF7F50">Integrasi</a>, Katalog Online terintegrasi untuk pencarian koleksi Perpustakaan Desa Kepuharjo</h5>
 	    
@@ -698,7 +698,7 @@
 
 	<style>
 		#id_map_in div{
-			background-image: url("/PetaWisata/config_img/toast_web_peta.png");
+			background-image: url("/https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/config_img/toast_web_peta.png");
 			width: 150px;
 			height: 30px;
 			left: 1000px;
@@ -751,11 +751,11 @@
     <div id="Peta Wisata" class="konten_tab">
       <!-- PETA JOGJA -->
 		<div class="cls_map_place" id="id_map_place">
-			<img class="logo_sleman2" src="PetaWisata/config_img/Sleman.png" width="70" height="80">
+			<img class="logo_sleman2" src="https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/config_img/Sleman.png" width="70" height="80">
 	    	<h1 class="corp_peta">Peta Wisata <br> Desa Kepuharjo</a></h1>
 
 	    	<div id="id_map_in">
-	    		<img class="peta_desa" src="PetaWisata/config_img/Peta Kepuharjo.jpg" width="650" height="990" >
+	    		<img class="peta_desa" src="https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/PetaWisata/config_img/Peta Kepuharjo.jpg" width="650" height="990" >
 
 	    		<!-- ------------------------------- BUTTON PLACE --------------------------- -->
 				<!-- 1 -->
@@ -882,16 +882,30 @@
 		.title_pw{
 			position: absolute;
 			left: 20px;
-			top: 50px;
+			top: 320px;
 			width: 1084px;
 			font-size: 20px;
+		}
+		.isi_perpus{
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			width: 1084px;
+			text-align: justify;
+		}
+		.isi_wisata{
+			position: absolute;
+			left: 50px;
+			top: 350px;
+			width: 1084px;
+			text-align: justify;
 		}
 	</style>
 
     <div id="Developer" class="konten_tab">
     	<div class="side_container">
     		<div></div>
-    		<img class="logo_sleman3" src="Developer/config_img/Sleman.png" width="100" height="120">
+    		<img class="logo_sleman3" src="https://raw.githubusercontent.com/sudiroeen/sudiroeen.github.io/master/Developer/config_img/Sleman.png" width="100" height="120">
     		<center>
     			<a class="pemdes"><strong>Pemerintah <br> Desa Kepuharjo</strong></a>
     		</center>
@@ -905,8 +919,19 @@
     	</div>
     	<div class="jelas_isi">
     		<a class="title_pd">&#x25BA; <strong>Perpustakaan Desa</strong></a>
-    		<a class="jelas_pd">Pada bagian Tab "Perpustakaan Desa", terdapat lima objek utama, tiga diantaranya objek <em>pasif</em>, sedangkan dua <em>active</em></a>
+    		<div class="isi_perpus">
+	    		<a>Pada bagian Tab "Perpustakaan Desa", terdapat lima objek utama, tiga diantaranya objek <em>pasif</em>, yakni , sedangkan dua objek <em>active</em></a>
+	    		<p>tiga objek yang pasif tersebut adalah objek gambar dengan class "logo_sleman", objek h1 dengan class "Corp" yang berguna untuk menempatkan tulisan "Perpustakaan Desa Kepuharjo", serta yang ketiga adalah objek h5 dengan class "des_corp" yang berguna untuk menempatkan tulisan "Online Public Access Catalog (OPAC)"</p>
+	    		<p>Sedangkan dua objek yang aktif adalah objek div dengan class bernama "container" yang di dalam nya terdapat beberapa objek lain, yaitu objek span dan div yang secara berturut - turut untuk tempat desain layout garis orange dan box kuning, kemudian diikuti tiga buah objek pasif berupa text dengan nama class secara berturut - turut adalah "text_search", "mini_opac", dan "text_lokasi"</p>
+	    		<p>Kemudian terdapat dua objek dropdown yaitu "dropdown_lokasi", dan "field_option"</p>
+	    		<p>Selain itu untuk melakukan pencarian buku, terdapat objek input text untuk penulisan kata kunci, sedangkan input submit untuk memulai proses pencarian</p>
+	    		<p>Terdapat juga objek Show All dan Hide All untuk secara berurutan menampilkan semua daftar buku yang ada, dan menghide daftar yang tertampil</p>
+	    	</div>
     		<a class="title_pw">&#x25BA; <strong>Peta Wisata</strong></a>
+    		<div class="isi_wisata">
+	    		<a>Pada bagian Tab "Peta Wisata", terdapat objek yang pasif, yaitu objek gambar dengan class "logo_sleman2", objek h1 dengan class "corp peta" yang berguna untuk menempatkan tulisan "Peta Wisata Desa Kepuharjo"</p>
+	    		<p>Sedangkan objek lain adalah objek "id_map_in" yang terdiri dari gambar peta Desa Kepuharjo yang terdapat icon lokasi yang dapat di-klik untuk melihat informasi tentang lokasi terkait, yang sebenanya adalah berupa button biasa dengan mengatur No Fill dan No Outline, serta text Button diisi dengan ico Place seperti yang ada di Google Map</p>
+	    	</div>
     	</div>
     </div>
 </body>
