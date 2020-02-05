@@ -1,0 +1,113 @@
+/********************* BUTTON PLACE *************************/
+.place_bantul{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	position: absolute;
+	left:calc(20px + 230px);
+	top:calc(140px + 220px + 60px);
+}
+.place_sleman{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	position: absolute;
+	left:calc(20px + 240px);
+	top:calc(140px + 90px + 60px);
+}
+.place_kulon_progo{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	position: absolute;
+	left:calc(20px + 100px);
+	top:calc(140px + 170px + 60px);
+}
+.place_gunung_kidul{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	position: absolute;
+	left:calc(20px + 390px);
+	top:calc(140px + 240px + 60px);
+}
+.place_diy{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	position: absolute;
+	left:calc(20px + 250px);
+	top:calc(140px + 140px + 60px);
+}
+/*##################### END OF BUTTON PLACE #################*/
+
+/* PETA JOGJA */
+.peta_jogja{
+	position: absolute;
+	left:20px;
+	top: 200px;
+}
+/* END OF PETA JOGJA */
+
+/* CALLBACK BUTTON PLACE */
+.cls_cb_place{
+	position: absolute;
+	left:700px;
+	top:20px;
+}
+/* END OF CALLBACK BUTTON PLACE */
+
+.callback_img{
+	position: absolute;
+	left: 0px;
+	top: 60px;
+	width: 550px;
+	height:250px;
+	border: 10px;
+}
+
+.tabel_konten_map{
+	position: absolute;
+	left: 0px;
+	top: 360px;
+	width: 555px;
+	border: 5px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  font-size:10px
+  border-collapse: collapse;
+  width: 400;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  line-height: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.special tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+body{
+	background-color: #FFFFFF;
+}
+
+.logo_sleman2{
+	position:absolute;
+	left:20px;
+	top:calc(60px + 30px);
+}
+
+.corp_peta{
+	position:absolute;
+	left:calc(20px + 80px);
+	top:calc(0px +10px);
+}

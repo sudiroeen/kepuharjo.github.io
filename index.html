@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<!-- https://css-tricks.com/dynamic-dropdowns/ -->
+<html>
+<head>
+  <meta content = "text/html; charset = ISO-8859-1" http-equiv = "content-type">
+  <title> Desa Kepuharjo </title>
+  <script src="PetaWisata/jquery.min.js"></script>
+</head>
+<body>
+
+	<style>
+							/* TAB Perpustakaan */
+		/* Style the tab */
+		.tab {
+		  overflow: hidden;
+		  border: 1px solid #ccc;
+		  background-color: #388C02; /*#f1f1f1;*/
+		}
+
+		/* Style button bagian tab*/
+		.tab button {
+		  background-color: inherit;
+		  float: left;
+		  border: none;
+		  outline: none;
+		  cursor: pointer;
+		  padding: 14px 16px;
+		  transition: 0.3s;
+		}
+
+		/* Change background color of buttons on hover */
+		.tab button:hover {
+		  background-color: #ddd;
+		}
+
+		/* Create an active/current tablink class */
+		.tab button.active {
+		  background-color: #ccc;
+		}
+
+		/* Style konten tab*/
+		.konten_tab {
+		  display: none;
+		  padding: 6px 12px;
+		  /*border: 1px solid #ccc;*/
+		  border-top: none;
+		}
+
+
+		/* style untuk tabel */
+		table {
+		  font-family: arial, sans-serif;
+		  font-size:10px
+		  border-collapse: collapse;
+		  width: 60%;
+		}
+
+		td, th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		  line-height: 15px;
+		}
+
+		tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+
+		.special tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+
+		 /*Konten Tab */
+		.logo_sleman{
+			position:absolute;
+			left:200px;
+			top:calc(60px + 60px);
+		}
+		.Corp{
+			position:absolute;
+			left:calc(200px + 80px);
+			top:calc(30px + 60px);
+		}
+		.des_corp{
+			position: absolute;
+			left:200px;
+			top:calc(80px + 60px + 60px);
+		}
+		.container span{
+			background-color:#FF7F50;
+			position: absolute;
+			left:200px;
+			top:calc(80px + 60px + 50px + 60px);
+			width: 770px;
+			height: 7px;
+		}
+		.container div{
+			background-color:#FFD700;
+			position: absolute;
+			left:200px;
+			top:calc(80px + 60px + 50px + 7px + 60px);
+			width: 770px;
+			height: 200px;
+		}
+		.tabel_buku{
+			position: absolute;
+			left:200px;
+			top:calc(80px + 60px + 50px + 7px + 220px + 60px);
+		}
+		.text_search{
+			position: absolute;
+			left:calc(200px + 20px);
+			top:calc(80px + 60px + 50px + 7px + 5px + 60px);
+			font-size: 40px;
+		}
+		.mini_opac{
+			position: absolute;
+			left:calc(200px + 20px);
+			top:calc(80px + 60px + 50px + 7px + 5px + 42px + 60px);
+			font-size: 13px;
+		}
+		.text_lokasi{
+			position: absolute;
+			left:calc(200px + 20px + 200px);
+			top:calc(80px + 60px + 50px + 7px + 70px + 60px);
+			font-size: 16px;
+		}
+		.dropdown_lokasi{
+			position: absolute;
+		    width: 253px;
+		    height:20px;
+		    left: calc(200px + 20px + 200px + 120px);
+		    top:calc(80px + 60px + 50px + 7px + 70px + 60px);
+		 }
+		.field_option{
+			position: absolute;
+		    width: 115px;
+		    height:20px;
+		    left: calc(200px + 20px + 200px);
+		    top:calc(80px + 60px + 50px + 7px + 70px + 30px + 60px);
+		}
+		.input_text{
+			position: absolute;
+			width: 250px;
+			height: 15px;
+			left:calc(200px + 20px + 200px + 120px);
+			top:calc(80px + 60px + 50px + 7px + 70px + 30px + 60px);
+		}
+		.input_submit{
+			position: absolute;
+			width: 100px;
+			height: 20px;
+			left:calc(200px + 20px + 200px + 120px + 155px);
+			top:calc(80px + 60px + 50px + 7px + 70px + 30px + 30px + 60px);
+		}
+		.show_all{
+			position: absolute;
+			width: 100px;
+			height: 20px;
+			left:calc(200px + 5px);
+			top:calc(80px + 60px + 50px + 7px + 200px - 20px - 5px + 60px);
+		}
+		.hide_all{
+			position: absolute;
+			width: 100px;
+			height: 20px;
+			left:calc(200px + 5px + 105px);
+			top:calc(80px + 60px + 50px + 7px + 200px - 20px - 5px + 60px);
+		}
+
+								/* TAB Peta Wisata*/
+				/********************* BUTTON PLACE *************************/
+		.place_museum_sisa_hartaku{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(148px + 2px);
+			top:calc(605px + 38px);
+		}
+		.place_batu_alien{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(226px + 2px);
+			top:calc(628px + 38px);
+		}
+		.place_bunker_kaliadem{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(130px + 2px);
+			top:calc(368px + 38px);
+		}
+		.place_rumah_hobbit{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(185px + 2px);
+			top:calc(644px + 38px);
+		}
+		.place_stonehange{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(133px + 2px);
+			top:calc(626px + 38px);
+		}
+		.place_the_lost_world_castle{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(177px + 2px);
+			top:calc(653px + 38px);
+		}
+		.place_kopi_merapi{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(100px + 2px);
+			top:calc(640px + 38px);
+		}
+		.place_kopi_galia_merapi{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(148px + 2px);
+			top:calc(633px + 38px);
+		}
+		.place_galeri_omahku{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(156px + 2px);
+			top:calc(643px + 38px);
+		}
+		.place_wisata_seribu_batu{
+			background-color: transparent;
+			border: none;
+			outline: none;
+			position: absolute;
+			left:calc(273px + 2px);
+			top:calc(916px + 38px);
+		}
+
+						/* TAB Material Icons */
+		/* fallback */
+		@font-face {
+		  font-family: 'Material Icons';
+		  font-style: normal;
+		  font-weight: 400;
+		  src: url("/PetaWisata/third-party.woff2") format('woff2');
+		}
+
+		.material-icons {
+		  font-family: 'Material Icons';
+		  font-weight: normal;
+		  font-style: normal;
+		  font-size: 24px;
+		  line-height: 1;
+		  letter-spacing: normal;
+		  text-transform: none;
+		  display: inline-block;
+		  white-space: nowrap;
+		  word-wrap: normal;
+		  direction: ltr;
+		  -webkit-font-feature-settings: 'liga';
+		  -webkit-font-smoothing: antialiased;
+		}
+		/*##################### END OF BUTTON PLACE #################*/
+
+		/* PETA JOGJA */
+		.peta_desa{
+			position: absolute;
+			left:20px;
+			top: 200px;
+		}
+		/* END OF PETA JOGJA */
+
+		/* CALLBACK BUTTON PLACE */
+		.cls_cb_place{
+			position: absolute;
+			left:700px;
+			top:20px;
+		}
+		/* END OF CALLBACK BUTTON PLACE */
+
+		.callback_img{
+			position: absolute;
+			left: 0px;
+			top: 187px;
+			width: 550px;
+			height:250px;
+			border: 10px;
+		}
+
+		.tabel_konten_map{
+			position: absolute;
+			left: 0px;
+			top: 487px;
+			width: 555px;
+			border: 5px;
+		}
+
+		#id_cb_denah_img{
+			position: absolute;
+			left: 0px;
+			top: 690px;
+			width: 550px;
+			height: 400px;
+			border: 10px;
+		}
+
+		table {
+		  font-family: arial, sans-serif;
+		  font-size:10px
+		  border-collapse: collapse;
+		  width: 400;
+		}
+
+		td, th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		  line-height: 15px;
+		}
+
+		tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+
+		.special tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+
+		body{
+			background-color: #FFFFFF;
+		}
+
+		.logo_sleman2{
+			position:absolute;
+			left:20px;
+			top:calc(60px + 30px);
+		}
+
+		.corp_peta{
+			position:absolute;
+			left:calc(20px + 80px);
+			top:calc(0px +10px);
+		}
+	</style>
+
+	<script>
+						/* TAB Peta Wisata */
+			/* ***************  CALLBACK BUTTON PLACE *************** */
+	function cb_place(obj, id_cb){
+		var lokasi = obj.name;
+		var file_json = "PetaWisata/config_json/" + lokasi + ".json"
+
+		var img_ = document.getElementById("id_callback_img");
+		img_.src = "PetaWisata/GambarWisata/" + lokasi + ".png"
+
+		var elemCb = document.getElementById("id_tabel_konten");
+		var str_elem = ""
+
+		elemCb.innerHTML = ""
+		var htprq = new XMLHttpRequest();
+		htprq.onreadystatechange = function(){
+			if(htprq.readyState == 4){
+				var json_object = JSON.parse(htprq.responseText);
+				var k;
+				for(k in json_object){
+					str_elem += "<tr>"
+					str_elem += "<td><strong>" + k +"</strong></td>"
+					if(k == "Nama"){
+						str_elem += "<td><strong><em>" + json_object[k] +"</em></strong></td>"
+					}else{
+						str_elem += "<td>" + json_object[k] + "</td>"	
+					}
+					str_elem += "</tr>"
+				}
+				elemCb.innerHTML += str_elem
+			}
+		}
+
+		htprq.open("GET", file_json, true);
+		htprq.send();
+
+		var denah_img = document.getElementById("id_cb_denah_img");
+		var file2include = "/PetaWisata/Denah/Denah " + lokasi + ".png";
+
+		denah_img.src = file2include;
+	}
+	/* ########### END OF CALLBACK BUTTON PLACE ############# */
+
+	/* TOOLS */
+	Object.size = function(obj){
+		var size = 0, key;
+		for(key in obj){
+			if(obj.hasOwnProperty(key)){
+				size++;
+			}
+		}
+		return size;
+	}
+	/* END OF TOOLS */
+
+	document.addEventListener("DOMContentLoaded", function(event){
+		document.getElementsByClassName("place_bunker_kaliadem")[0].click();
+	})
+
+					/* TAB Perpustakaan */
+	document.addEventListener("DOMContentLoaded", function(event){
+		var list_lib = "Perpustakaan/config_json/ListPerpusKepuharjo.json"
+		var data2write = document.getElementById("id_dropdown_lokasi")
+		var str2append = ""
+
+		var http_req = new XMLHttpRequest()
+		http_req.onreadystatechange = function(){
+			if(http_req.readyState == 4){
+				// str2append += "<option value='Semua'>Semua</option>"
+				
+				var json_lib_obj = JSON.parse(http_req.responseText)
+
+				for(var p=0; p<Object.size(json_lib_obj); p++){
+					var pp1 = p+1
+					var vp = pp1.toString()
+
+					str2append += "<option value='" + json_lib_obj[vp] + "'>Perpustakaan " + json_lib_obj[vp] + "</option>"
+				}
+				data2write.innerHTML = str2append
+			}
+		}
+		http_req.open("GET", list_lib, true);
+		http_req.send();
+	});
+
+
+	document.addEventListener("DOMContentLoaded", function(event){
+		var list_field = "Perpustakaan/config_json/ListField.json"
+		var field2write = document.getElementById("id_field_option")
+		var str_fld2append = ""
+
+		var htpr = new XMLHttpRequest()
+		htpr.onreadystatechange = function(){
+			if(htpr.readyState == 4){
+				// str_fld2append += "<option value='Semua'>Semua Field</option>"
+
+				var json_field_obj = JSON.parse(htpr.responseText)
+				for(var f=0; f<Object.size(json_field_obj); f++){
+					var f1 = f+1
+					var sf = f1.toString()
+
+					str_fld2append += "<option value='" + json_field_obj[sf] + "'>" + json_field_obj[sf] + "</option>"
+				}
+
+				field2write.innerHTML += str_fld2append
+			}
+		}
+		htpr.open("GET", list_field, true)
+		htpr.send()
+	});
+
+	document.addEventListener("DOMContentLoaded", function(event){
+		document.getElementById("Tabel Perpustakaan").style.display = "none"
+	});
+
+	function showTabel(table_name, data_file_){
+		document.getElementById("Tabel Perpustakaan").innerHTML = ""
+
+		var http_request = new XMLHttpRequest()
+		http_request.onreadystatechange = function(){
+			myCallback(http_request);
+		};
+
+		http_request.open("GET", data_file_, true);
+	http_request.send();
+
+		document.getElementById(table_name).style.display = "block"
+	};
+
+	function hideTabel(table_name){
+		document.getElementById(table_name).style.display = "none"
+	}
+	function myInputText(){
+		var text_isi = document.getElementById("input_text_id").value
+		return text_isi;
+	}
+
+
+	document.addEventListener("DOMContentLoaded", function(event){
+	   		document.getElementsByClassName("tablinks")[2].click()
+	   	});
+
+	function openTab(evt, tabName) {
+	  var i, konten_tab, tablinks;
+
+	  // Get all elements with class="konten_tab" and hide them
+	  konten_tab = document.getElementsByClassName("konten_tab");
+	  for (i = 0; i < konten_tab.length; i++) {
+		konten_tab[i].style.display = "none";
+	  }
+
+	  // Get all elements with class="tablinks" and remove the class "active"
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+
+	  // Show the current tab, and add an "active" class to the button that opened the tab
+	  document.getElementById(tabName).style.display = "block";
+	  evt.currentTarget.className += " active";
+	}
+
+
+	Object.size = function(obj){
+		var size = 0, key;
+		for(key in obj){
+			if(obj.hasOwnProperty(key)){
+				size++;
+			}
+		}
+		return size;
+	};
+
+
+	var lks = "Desa Kepuharjo";
+	var data_file = "Perpustakaan/Buku/" + lks + ".json";
+
+	function dropDownLocCb(){
+		lks = document.getElementById("id_dropdown_lokasi").value
+		data_file = "Perpustakaan/Buku/" + lks + ".json";
+
+		document.getElementsByClassName("show_all")[0].click()
+	return data_file;
+	}
+
+	function dropDownFieldCb(){
+		var res_field = document.getElementById("id_field_option").value
+		return res_field;
+	}
+
+	function searchCb(retDDLoc, retDDField){
+		var retInputText = document.getElementById("input_text_id").value
+		
+		var f_htpr = new XMLHttpRequest()
+
+		f_htpr.onreadystatechange = function(){
+			innerCbSearch(f_htpr, retDDLoc, retDDField, retInputText);
+		}  		
+
+		f_htpr.open("GET", retDDLoc, true);
+		f_htpr.send();
+	}
+
+	function innerCbSearch(f_htpr, retDDLoc, retDDField, retInputText){
+		var canvas_tabel = document.getElementById("Tabel Perpustakaan")
+		canvas_tabel.innerHTML = ""
+
+		if(f_htpr.readyState == 4){
+			// alert("lokasi: " + retDDLoc + " field: " + retDDField + " input_text: " + retInputText)
+			var jsonObj = JSON.parse(f_htpr.responseText)
+			var count = 0
+
+			var str_html = ""
+		str_html += "<center>"
+		str_html += "<table class='tabel_buku' style='font-family: arial, sans-serif; font-size:15px; border-collapse: collapse;width: 60%;'>"
+		str_html += "<tr style='background-color:#dddddd;'>"
+			str_html += "<th style='background-color:#dddddd;'> No. </th>"
+			str_html += "<th style='background-color:#dddddd;'> Buku </th>"
+			str_html += "<th style='background-color:#dddddd;'> Jumlah </th>"
+		str_html += "</tr>"
+
+			for(var t=0; t<Object.size(jsonObj); t++){
+				var t1 = t+1;
+				var st = t1.toString()
+
+				var str = jsonObj[st][retDDField]
+				var index = str.search(new RegExp(retInputText, "i"))
+
+				if(index > -1){
+					count ++;
+
+					if(count%2 == 0){
+						str_html += "<tr style='background-color:#dddddd;'>"
+					}else{
+						str_html += "<tr style='background-color:#ffffff;'>"
+					}
+					str_html += "<td style='border: 1px solid #dddddd; text-align: left; padding: 8px; line-height: 15px;'><strong>" + count.toString() + "</strong>" + "</td>"
+					str_html += "<td style='border: 1px solid #dddddd; text-align: left; padding: 8px; line-height: 15px;'>"
+						str_html += "<a href='https://www.w3schools.com/html/' style='font-size:14px'>" + jsonObj[st]["Judul"] + "</a>"
+						str_html += "<p style='font-size:12px;'>" + jsonObj[st]["Kode"] + "</p>" 
+						str_html += "<p style='font-size:12px;'><em><strong>" + jsonObj[st]["Penulis"] +"</strong></em></p>"
+						str_html += "<p style='font-size:12px;'>" + jsonObj[st]["Penerbit"] + "</p>"
+					str_html += "</td>"
+					str_html += "<td style='border: 1px solid #dddddd; text-align: left; padding: 8px; line-height: 15px;'>" + jsonObj[st]["Jml"] + "</td>"
+					str_html += "</tr>"
+					}
+		}
+
+		str_html += "</table>"
+		str_html += "</center>"
+		canvas_tabel.innerHTML += str_html
+	}
+	}
+
+	function myCallback(http_request){
+		var data_tabel = document.getElementById("Tabel Perpustakaan")
+
+		if(http_request.readyState == 4){
+			var str_html = ""
+			str_html += "<center>"
+			str_html += "<table class='tabel_buku' style='font-family: arial, sans-serif; font-size:15px; border-collapse: collapse;width: 60%;'>"
+			str_html += "<tr style='background-color:#dddddd;'>"
+				str_html += "<th style='background-color:#dddddd;'> No. </th>"
+				str_html += "<th style='background-color:#dddddd;'> Buku </th>"
+				str_html += "<th style='background-color:#dddddd;'> Jumlah </th>"
+			str_html += "</tr>"
+			
+			var jsonObj = JSON.parse(http_request.responseText)
+			for(var j=0; j<Object.size(jsonObj); j++){
+				var l = j+1
+				var k = l.toString()
+				
+				if(j%2 == 0){
+					str_html += "<tr style='background-color:#ffffff;'>"
+				}else{
+					str_html += "<tr style='background-color:#dddddd;'>"
+				}
+					str_html += "<td style='border: 1px solid #dddddd; text-align: left; padding: 8px; line-height: 15px;'><strong>" + k.toString() + "</strong>" + "</td>"
+					str_html += "<td style='border: 1px solid #dddddd; text-align: left; padding: 8px; line-height: 15px;'>"
+						str_html += "<a href='https://www.w3schools.com/html/' style='font-size:14px'>" + jsonObj[k]["Judul"] + "</a>"
+						str_html += "<p style='font-size:12px;'>" + jsonObj[k]["Kode"] + "</p>" 
+						str_html += "<p style='font-size:12px;'><em><strong>" + jsonObj[k]["Penulis"] +"</strong></em></p>"
+						str_html += "<p style='font-size:12px;'>" + jsonObj[k]["Penerbit"] + "</p>"
+					str_html += "</td>"
+					str_html += "<td style='border: 1px solid #dddddd; text-align: left; padding: 8px; line-height: 15px;'>" + jsonObj[k]["Jml"] + "</td>"
+				str_html += "</tr>"
+			}
+
+			str_html += "</table>"
+			str_html += "</center>"
+			data_tabel.innerHTML += str_html
+		}
+	}
+
+	document.addEventListener("DOMContentLoaded", function(event){
+		var http_request = new XMLHttpRequest()
+		http_request.onreadystatechange = function(){
+			myCallback(http_request);
+		};
+
+		http_request.open("GET", data_file, true);
+		http_request.send();
+	});
+	</script>
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Perpustakaan Desa')">Perpustakaan Desa</button>
+      <button class="tablinks" onclick="openTab(event, 'Peta Wisata')">Peta Wisata</button>
+      <button class="tablinks" onclick="openTab(event, 'Developer')">Developer</button>
+    </div>
+
+	<div id="Perpustakaan Desa" class="konten_tab">
+	    <img class="logo_sleman" src="Perpustakaan/config_img/Sleman.png" width="70" height="80" >
+	    <h1 class="Corp">Perpustakaan Desa Kepuharjo <br> OPAC <a style="color: #FF7F50">Integrasi</a></h1>
+	    <h5 class="des_corp">Online Public Access Catalog (OPAC) <a style="color: #FF7F50">Integrasi</a>, Katalog Online terintegrasi untuk pencarian koleksi Perpustakaan Desa Kepuharjo</h5>
+	    
+	    <div class="container">
+	    	<!-- <marquee class="running_text">Anda sedang menggunakan OPAC Desa Kepuharjo yang terhubung ke beberapa dusun/instansi di Kepuharjo ... Untuk pencarian koleksi, perhatikan LOKASI di mana koleksi tersebut berada ...</marquee> -->
+	    	<span></span>
+	    	<div></div>
+	    	<a class="text_search">Search</a>
+	    	<a class="mini_opac">online public access catalog</a>
+
+	    	<a class="text_lokasi"><b>Lokasi</b></a>
+	    	<select class="dropdown_lokasi" id="id_dropdown_lokasi" onclick="dropDownLocCb()"></select>
+
+	    	<select class="field_option" id="id_field_option" onclick="dropDownFieldCb()"></select>
+
+	    	<input type="text" class="input_text" id="input_text_id">
+	    	<input type="submit" class="input_submit" value="Search" onclick="searchCb(dropDownLocCb(), dropDownFieldCb())">
+
+	    	<input type="submit" class="show_all" value="Show All" onclick="showTabel('Tabel Perpustakaan', dropDownLocCb())">
+	    	<input type="submit" class="hide_all" value="Hide All" onclick="hideTabel('Tabel Perpustakaan')">
+	    </div>
+
+	    <div id="Tabel Perpustakaan"></div>
+	</div>
+
+	<style>
+		#id_map_in div{
+			background-image: url("/PetaWisata/config_img/toast_web_peta.png");
+			width: 150px;
+			height: 30px;
+			left: 1000px;
+			top: 330px;
+			position: absolute;
+			opacity: 1;
+		}
+	</style>
+
+	<script>
+		$(document).ready(function(){
+			$("#id_map_in").mousemove(function(e){
+				var x = e.pageX - this.offsetLeft;
+				var y = e.pageY - this.offsetTop;
+				$("div", this).css({
+					left: x + 20,
+					top: y+9
+				});
+				var str_val_loc = "X: " + x + "  Y: " + y;
+
+				if((x>95) & (y>625) & (x<105) & (y<635)){
+					str_val_loc += "\r\n" + "Kopi Merapi";
+				}else if((x>125) & (y>350) & (x<135) & (y<367)){
+					str_val_loc += "\r\n" + "Bunker Kaliadem"
+				}else if((x>220) & (y>612) & (x<230) & (y<623)){
+					str_val_loc += "\r\n" + "Batu Alien";
+				}else if((x>267) & (y>900) & (x<280) & (y<910)){
+					str_val_loc +=  "\r\n" + "Wisata Seribu Batu";
+				}else if((x>142) & (y>590) & (x<153) & (y<502)){
+					str_val_loc += "\r\n" + "The Lost Garden Park";
+				}else if((x>125) & (y>610) & (x<135) & (y<620)){
+					str_val_loc += "\r\n" + "Stonehange";
+				}else if((x>140) & (y>590) & (x<150) & (y<600)){
+					str_val_loc += "\r\n" + "Museum Sisa Hartaku";
+				}else if((x>145) & (y>615) & (x<153) & (y<621)){
+					str_val_loc += "\r\n" + "Kopi Galia Merapi";
+				}else if((x>154) & (y>630) & (x<161) & (y<640)){
+					str_val_loc += "\r\n" + "Galeri Omahku";
+				}else if((x>174) & (y>640) & (x<180) & (y<652)){
+					str_val_loc += "\r\n" + "The Lost World Castle";
+				}else if((x>181) & (y>626) & (x<191) & (y<631)){
+					str_val_loc += "\r\n" + "Rumah Hobbit";
+				}
+
+				$("div", this).html(str_val_loc);
+			}).mousemove();
+		});
+	</script>
+    
+    <div id="Peta Wisata" class="konten_tab">
+      <!-- PETA JOGJA -->
+		<div class="cls_map_place" id="id_map_place">
+			<img class="logo_sleman2" src="PetaWisata/config_img/Sleman.png" width="70" height="80">
+	    	<h1 class="corp_peta">Peta Wisata <br> Desa Kepuharjo</a></h1>
+
+	    	<div id="id_map_in">
+	    		<img class="peta_desa" src="PetaWisata/config_img/Peta Kepuharjo.jpg" width="650" height="990" >
+
+	    		<!-- ------------------------------- BUTTON PLACE --------------------------- -->
+				<!-- 1 -->
+				<button name="Museum Sisa Hartaku" class="place_museum_sisa_hartaku" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 2 -->
+				<button name="Batu Alien" class="place_batu_alien" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 3 -->
+				<button name="Bunker Kaliadem" class="place_bunker_kaliadem" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 4 -->
+				<button name="Rumah Hobbit" class="place_rumah_hobbit" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 5 -->
+				<button name="Stonehange" class="place_stonehange" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 6 -->
+				<button name="The Lost World Castle" class="place_the_lost_world_castle" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 7 -->
+				<button name="Kopi Merapi" class="place_kopi_merapi" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 8 -->
+				<button name="Kopi Galia Merapi" class="place_kopi_galia_merapi" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 9 -->
+				<button name="Galeri Omahku" class="place_galeri_omahku" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+				<!-- 10 -->
+				<button name="Wisata Seribu Batu" class="place_wisata_seribu_batu" style="font-size:24px" onclick="cb_place(this, 'id_cb_place')">
+					<i class="material-icons" style="font-size:30;color:red;">place</i>
+				</button>
+
+				<!-- ############################ END OF BUTTON PLACE #################### -->
+	    		<div></div>
+	    	</div>
+		</div>
+		<!-- END OF PETA JOGJA -->
+
+		<!-- CALLBACK BUTTON PLACE -->
+		<div class="cls_cb_place" id="id_cb_place">
+			<img class="callback_img" id="id_callback_img">
+			<table class='tabel_konten_map' id='id_tabel_konten' width="600"></table>
+			<img class="cb_denah_img" id="id_cb_denah_img">
+		</div>
+		<!-- END CALLBACK BUTTON PLACE -->
+    </div>
+
+    <!-- TAB Developer -->
+	<style>
+		.side_container div{
+			background-color:#77A857;
+			position: absolute;
+			left:8px;
+			top:50px;
+			width: 180px;
+			height: 700px;
+		}
+		.logo_sleman3{
+			position:absolute;
+			left:40px;
+			top:70px;
+		}
+		.pemdes{
+			position: absolute;
+			left: 12px;
+			top: 200px;
+			font-size: 23px;
+		}
+		.simple_text{
+			position: absolute;
+			left: 15px;
+			top: 300px;
+			width: 160px;
+			text-align: justify;
+			font-size: 14px;
+		}
+		.side_container span{
+			background-color:#1A1C19;
+			position: absolute;
+			left:15px;
+			top:290px;
+			width: 100px;
+			height: 1px;
+		}
+		.title_container{
+			background-color: #DAE7D4;/*#f1f1f1;*/
+			position: absolute;
+			left: 187px;
+			top: 52px;
+			width: 1084px;
+			height: 50px;
+		}
+		.title_text{
+			position: absolute;
+			font-size: 25px;
+			font-family: sans-serif;
+			color: #134180;
+			left: 10px;
+			top: 10px;
+		}
+		.jelas_isi{
+			position: absolute;
+			left: 187px;
+			top: 110px;
+		}
+		.title_pd{
+			position: absolute;
+			left: 20px;
+			top: 20px;
+			width: 1084px;
+			font-size: 20px;
+		}
+		.title_pw{
+			position: absolute;
+			left: 20px;
+			top: 50px;
+			width: 1084px;
+			font-size: 20px;
+		}
+	</style>
+
+    <div id="Developer" class="konten_tab">
+    	<div class="side_container">
+    		<div></div>
+    		<img class="logo_sleman3" src="Developer/config_img/Sleman.png" width="100" height="120">
+    		<center>
+    			<a class="pemdes"><strong>Pemerintah <br> Desa Kepuharjo</strong></a>
+    		</center>
+    		
+    		<span></span>
+
+    		<a class="simple_text">Penjelasan alur kerja desain Web Perpustakaan Desa dan Peta Wisata bagi <em>developer</em> selanjutnya</a>
+    	</div>
+    	<div class="title_container">
+    		<a class="title_text"><strong>Tutorial Developer</strong></a>
+    	</div>
+    	<div class="jelas_isi">
+    		<a class="title_pd">&#x25BA; <strong>Perpustakaan Desa</strong></a>
+    		<a class="jelas_pd">Pada bagian Tab "Perpustakaan Desa", terdapat lima objek utama, tiga diantaranya objek <em>pasif</em>, sedangkan dua <em>active</em></a>
+    		<a class="title_pw">&#x25BA; <strong>Peta Wisata</strong></a>
+    	</div>
+    </div>
+</body>
+</html>

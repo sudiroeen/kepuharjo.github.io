@@ -1,0 +1,157 @@
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style button bagian tab*/
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style konten tab*/
+.konten_tab {
+  display: none;
+  padding: 6px 12px;
+  /*border: 1px solid #ccc;*/
+  border-top: none;
+}
+
+
+/* style untuk tabel */
+table {
+  font-family: arial, sans-serif;
+  font-size:10px
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  line-height: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.special tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+ /*Konten Tab */
+.logo_sleman{
+	position:absolute;
+	left:200px;
+	top:calc(60px + 60px);
+}
+.Corp{
+	position:absolute;
+	left:calc(200px + 80px);
+	top:calc(30px + 60px);
+}
+.des_corp{
+	position: absolute;
+	left:200px;
+	top:calc(80px + 60px + 60px);
+}
+.container span{
+	background-color:#FF7F50;
+	position: absolute;
+	left:200px;
+	top:calc(80px + 60px + 50px + 60px);
+	width: 770px;
+	height: 7px;
+}
+.container div{
+	background-color:#FFD700;
+	position: absolute;
+	left:200px;
+	top:calc(80px + 60px + 50px + 7px + 60px);
+	width: 770px;
+	height: 200px;
+}
+.tabel_buku{
+	position: absolute;
+	left:200px;
+	top:calc(80px + 60px + 50px + 7px + 220px + 60px);
+}
+.text_search{
+	position: absolute;
+	left:calc(200px + 20px);
+	top:calc(80px + 60px + 50px + 7px + 5px + 60px);
+	font-size: 40px;
+}
+.mini_opac{
+	position: absolute;
+	left:calc(200px + 20px);
+	top:calc(80px + 60px + 50px + 7px + 5px + 42px + 60px);
+	font-size: 13px;
+}
+.text_lokasi{
+	position: absolute;
+	left:calc(200px + 20px + 200px);
+	top:calc(80px + 60px + 50px + 7px + 70px + 60px);
+	font-size: 16px;
+}
+.dropdown_lokasi{
+	position: absolute;
+    width: 253px;
+    height:20px;
+    left: calc(200px + 20px + 200px + 120px);
+    top:calc(80px + 60px + 50px + 7px + 70px + 60px);
+ }
+.field_option{
+	position: absolute;
+    width: 115px;
+    height:20px;
+    left: calc(200px + 20px + 200px);
+    top:calc(80px + 60px + 50px + 7px + 70px + 30px + 60px);
+}
+.input_text{
+	position: absolute;
+	width: 250px;
+	height: 15px;
+	left:calc(200px + 20px + 200px + 120px);
+	top:calc(80px + 60px + 50px + 7px + 70px + 30px + 60px);
+}
+.input_submit{
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	left:calc(200px + 20px + 200px + 120px + 155px);
+	top:calc(80px + 60px + 50px + 7px + 70px + 30px + 30px + 60px);
+}
+.show_all{
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	left:calc(200px + 5px);
+	top:calc(80px + 60px + 50px + 7px + 200px - 20px - 5px + 60px);
+}
+.hide_all{
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	left:calc(200px + 5px + 105px);
+	top:calc(80px + 60px + 50px + 7px + 200px - 20px - 5px + 60px);
+}
